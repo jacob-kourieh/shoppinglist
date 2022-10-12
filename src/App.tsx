@@ -1,16 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
+  const [id, setId] = useState('');
+  useEffect(() => {
+    fetch('https://shoppinglist-hr13.onrender.com/shoppinglists')
+      .then((resp) => resp.json())
+      .then((data => console.log(data)
+      ))
+  }, []);
   return (
     <div className="App">
       <header>
-        <h1>Shopping List</h1>
+        <h1>Shopping list</h1>
       </header>
       <main>
         <ul>
-          <li>Banana</li>
+          <li onChange={() => setId('bla')}>Banana</li>
           <li>Banana</li>
           <li>Banana</li>
           <li>Banana</li>
